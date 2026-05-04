@@ -1,0 +1,39 @@
+# Deprecated for Phase 2 baseline: use `with_churro.yaml` (PaddleOCR-VL excluded — ~130 s/image on CPU).
+# Kept for optional local experiments if you install GPU Paddle and accept runtime cost.
+test_jsonl: data/interim/birchbark_test.jsonl
+predictions_path: runs/phase2/raw_predictions_churro_paddle.jsonl
+metrics_path: runs/phase2/metrics_churro_paddle.json
+fig_path: reports/figs/baseline_churro_paddle.png
+
+models:
+  - churro_cli
+  - paddle_vl
+
+tesseract_lang: rus
+easyocr_langs:
+  - ru
+  - en
+
+churro_model: stanford-oval/churro-3B
+churro_timeout_seconds: 600
+# HF generate cap (CLI default in churro_ocr is ~25k; long runs / repetition loops on some crops).
+churro_max_new_tokens: 128
+
+trocr_model: cyrillic-trocr/trocr-handwritten-cyrillic
+
+qwen35_2b_model: Qwen/Qwen3.5-2B
+qwen35_08b_model: Qwen/Qwen3.5-0.8B
+qwen_max_image_side: 896
+
+paddle_lang: latin
+# PaddleOCR-VL: default gen length is very large (slow / can look hung on CPU); cap tokens + wall time.
+paddle_vl_max_new_tokens: 512
+paddle_timeout_seconds: 300
+# Optional: bound VLM image pixels (e.g. 1048576). Uncomment if VRAM/CPU time is still high.
+# paddle_vl_max_pixels: 1048576
+# paddle_vl_repetition_penalty: 1.08
+
+device: cuda
+dtype: bfloat16
+limit: 0
+seed: 1337

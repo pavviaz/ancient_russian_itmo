@@ -1,0 +1,8 @@
+{
+  "seed": 1337,
+  "n_total": 1260,
+  "n_train": 884,
+  "n_val": 124,
+  "n_test": 252,
+  "source": "data/raw/gramoty/document_index.jsonl"
+}

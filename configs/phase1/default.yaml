@@ -1,0 +1,12 @@
+# Phase 1 — data acquisition (Hydra root for future scripts)
+seed: 1337
+gramoty:
+  base_url: https://gramoty.ru
+  list_path: /birchbark/document/list/
+  delay_seconds: 2.0
+  output_dir: data/raw/gramoty
+splits:
+  train_ratio: 0.70
+  val_ratio: 0.10
+  test_ratio: 0.20
+  out_dir: data/splits

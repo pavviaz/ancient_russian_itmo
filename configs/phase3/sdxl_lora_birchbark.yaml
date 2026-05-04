@@ -1,0 +1,35 @@
+experiment_id: sdxl_lora_birchbark_v1
+date: 2026-05-03
+seed: 1337
+
+model:
+  pretrained_model_name_or_path: stabilityai/stable-diffusion-xl-base-1.0
+  pretrained_vae_model_name_or_path: null
+  variant: fp16
+  trigger_token: "<birchbark>"
+
+data:
+  train_data_dir: data/synthetic/sdxl_lora_gramoty_train
+  n_images: 400
+  source: gramoty train-split photos only
+  resolution: 1024
+  caption: "<birchbark> Old Russian inscription scratched into birch bark, grey brown fibrous wooden surface, shallow dark incised Cyrillic letters, medieval Novgorod birchbark gramota, archaeological document photo"
+
+training:
+  rank: 16
+  learning_rate: 1.0e-4
+  train_batch_size: 1
+  gradient_accumulation_steps: 4
+  max_train_steps: 2000
+  checkpointing_steps: 100
+  mixed_precision: bf16
+  gradient_checkpointing: true
+  use_8bit_adam: true
+  train_text_encoder: false  # first 16 GB VRAM run; add an ablation if UNet-only underfits
+  report_to: tensorboard
+  dataloader_num_workers: 2
+
+  validation: disabled_during_training  # generate validation samples after checkpoints to avoid losing runs
+
+output:
+  output_dir: runs/phase3_sdxl_lora_birchbark_v1_retry_20260503

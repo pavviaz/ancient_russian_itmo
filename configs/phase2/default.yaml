@@ -1,0 +1,39 @@
+defaults:
+  - _self_
+
+hydra:
+  job:
+    chdir: false
+
+test_jsonl: data/interim/birchbark_test.jsonl
+predictions_path: runs/phase2/raw_predictions.jsonl
+metrics_path: runs/phase2/metrics.json
+fig_path: reports/figs/baseline_bars.png
+
+# Full Phase-2 matrix (agent_protocol §3.1). CHURRO-only venv run: `configs/phase2/with_churro.yaml` + `scripts/run_phase2_churro_paddle.sh`.
+models:
+  - tesseract
+  - easyocr
+  - trocr
+  - qwen35_08b
+  - qwen35_2b
+
+tesseract_lang: rus   # use rus_old if installed (tessdata_best)
+easyocr_langs:
+  - ru
+  - en
+
+churro_model: stanford-oval/churro-3B
+churro_timeout_seconds: 120
+churro_max_new_tokens: 128
+
+trocr_model: cyrillic-trocr/trocr-handwritten-cyrillic
+
+qwen35_2b_model: Qwen/Qwen3.5-2B
+qwen35_08b_model: Qwen/Qwen3.5-0.8B
+qwen_max_image_side: 896
+
+device: cuda
+dtype: bfloat16
+limit: 0
+seed: 1337

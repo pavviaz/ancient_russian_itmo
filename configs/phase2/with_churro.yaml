@@ -1,0 +1,30 @@
+# CHURRO-3B only (PaddleOCR-VL excluded from Phase 2 baseline: ~130 s/image on CPU in this env).
+test_jsonl: data/interim/birchbark_test.jsonl
+predictions_path: runs/phase2/raw_predictions_churro.jsonl
+metrics_path: runs/phase2/metrics_churro.json
+fig_path: reports/figs/baseline_churro.png
+
+models:
+  - churro_cli
+
+tesseract_lang: rus
+easyocr_langs:
+  - ru
+  - en
+
+churro_model: stanford-oval/churro-3B
+churro_timeout_seconds: 600
+churro_max_new_tokens: 128
+
+trocr_model: cyrillic-trocr/trocr-handwritten-cyrillic
+
+qwen35_2b_model: Qwen/Qwen3.5-2B
+qwen35_08b_model: Qwen/Qwen3.5-0.8B
+qwen_max_image_side: 896
+
+paddle_lang: latin
+
+device: cuda
+dtype: bfloat16
+limit: 0
+seed: 1337
