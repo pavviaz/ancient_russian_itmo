@@ -1,0 +1,20 @@
+{
+  "adapter": "runs/phase4_v6/mixed_80_20_seed2026_r32/checkpoint-300",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "jsonl": "data/splits/phase4_v3/val.jsonl",
+  "decoding": {
+    "max_new_tokens": 160,
+    "num_beams": 4,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 4
+  },
+  "n_rows_input": 117,
+  "n_rows_scored": 117,
+  "n_skipped_no_img": 0,
+  "n_skipped_meaningless": 0,
+  "mean_cer_raw": 0.5507331084920405,
+  "mean_cer_brackets_stripped": 0.5309378152160903,
+  "mean_nls": 0.45317718313189004,
+  "elapsed_sec": 252.08513188362122
+}

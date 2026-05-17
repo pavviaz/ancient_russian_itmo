@@ -1,0 +1,18 @@
+{
+  "model": "stanford-oval/churro-3B",
+  "jsonl": "data/interim/birchbark_test.jsonl",
+  "n_input": 252,
+  "n_scored": 246,
+  "n_skip_no_img": 1,
+  "n_skip_meaningless": 5,
+  "mean_cer_raw_with_normalization": 2.627931732736267,
+  "mean_cer_brackets_stripped": 2.8450952005899985,
+  "mean_nls": 0.008891284415366641,
+  "elapsed_sec": 1106.8028337955475,
+  "postprocessing": {
+    "stage1_xml_strip": "_churro_output_to_plaintext (extract <Line>...</Line>)",
+    "stage2_text_norm": "src/birchbark_ocr/data/text_norm.py::normalize_text",
+    "stage3_brackets": "regex strip [ and ] for the bracket-stripped CER column",
+    "rationale": "Identical normalization applied to gold AND prediction"
+  }
+}

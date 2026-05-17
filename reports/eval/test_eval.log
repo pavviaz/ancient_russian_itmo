@@ -1,0 +1,46 @@
+[+] loading base Qwen/Qwen3.5-2B ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/617 [00:00<?, ?it/s]Loading weights: 100%|██████████| 617/617 [00:00<00:00, 11220.65it/s]
+[+] loading adapter runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900 ...
+[+] model on cuda:0 dtype=bfloat16
+[  10/252]  scored=10  meanCER=0.6462  meanNLS=0.3993  elapsed=25s
+[  20/252]  scored=20  meanCER=0.6170  meanNLS=0.4129  elapsed=42s
+[  30/252]  scored=30  meanCER=0.6579  meanNLS=0.3970  elapsed=68s
+[  40/252]  scored=39  meanCER=0.6112  meanNLS=0.4330  elapsed=84s
+[  50/252]  scored=49  meanCER=0.5903  meanNLS=0.4457  elapsed=112s
+[  60/252]  scored=59  meanCER=0.5769  meanNLS=0.4544  elapsed=133s
+[  70/252]  scored=68  meanCER=0.5563  meanNLS=0.4713  elapsed=155s
+[  80/252]  scored=77  meanCER=0.5517  meanNLS=0.4728  elapsed=175s
+[  90/252]  scored=87  meanCER=0.5527  meanNLS=0.4715  elapsed=200s
+[ 100/252]  scored=97  meanCER=0.5688  meanNLS=0.4617  elapsed=225s
+[ 110/252]  scored=106  meanCER=0.5657  meanNLS=0.4666  elapsed=250s
+[ 120/252]  scored=115  meanCER=0.5660  meanNLS=0.4644  elapsed=266s
+[ 130/252]  scored=125  meanCER=0.5596  meanNLS=0.4726  elapsed=288s
+[ 140/252]  scored=135  meanCER=0.5646  meanNLS=0.4662  elapsed=309s
+[ 150/252]  scored=145  meanCER=0.5645  meanNLS=0.4657  elapsed=327s
+[ 160/252]  scored=154  meanCER=0.5590  meanNLS=0.4703  elapsed=351s
+[ 170/252]  scored=164  meanCER=0.5571  meanNLS=0.4711  elapsed=371s
+[ 180/252]  scored=174  meanCER=0.5642  meanNLS=0.4660  elapsed=383s
+[ 190/252]  scored=184  meanCER=0.5692  meanNLS=0.4613  elapsed=398s
+[ 200/252]  scored=194  meanCER=0.5705  meanNLS=0.4606  elapsed=419s
+[ 210/252]  scored=204  meanCER=0.5737  meanNLS=0.4592  elapsed=436s
+[ 220/252]  scored=214  meanCER=0.5694  meanNLS=0.4649  elapsed=462s
+[ 230/252]  scored=224  meanCER=0.5743  meanNLS=0.4594  elapsed=479s
+[ 240/252]  scored=234  meanCER=0.5783  meanNLS=0.4567  elapsed=493s
+[ 250/252]  scored=244  meanCER=0.5812  meanNLS=0.4550  elapsed=510s
+[ 252/252]  scored=246  meanCER=0.5827  meanNLS=0.4535  elapsed=512s
+{
+  "adapter": "runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "jsonl": "data/interim/birchbark_test.jsonl",
+  "n_rows_input": 252,
+  "n_rows_scored": 246,
+  "n_skipped_no_img": 1,
+  "n_skipped_meaningless": 5,
+  "mean_cer_raw": 0.5826720447625059,
+  "mean_cer_brackets_stripped": 0.5529487655206103,
+  "mean_nls": 0.45345222170150656,
+  "elapsed_sec": 512.2877442836761
+}

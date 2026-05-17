@@ -1,0 +1,60 @@
+{
+  "_doc": "Multi-seed variance + LoRA-rank ablation on mixed_80_20 ceiling-5ep config. All numbers are full-split beam=4, max_new_tokens=160, with the deterministic gold normaliser (text_norm.normalize_text) applied to both gold and prediction.",
+  "decoding": {"num_beams": 4, "max_new_tokens": 160, "no_repeat_ngram_size": 4},
+  "config_fixed": {
+    "base_model": "Qwen/Qwen3.5-2B",
+    "mix": "mixed_80_20 (synth 80% / real 20%)",
+    "epochs_ceiling": 5,
+    "lora_target": "all-modules (LM self_attn + linear-attn in_proj_* + MLP + vision encoder qkv/fc1/fc2)",
+    "lora_alpha": 64,
+    "lora_dropout": 0.05,
+    "lr": 1e-4,
+    "warmup_ratio": 0.05,
+    "max_grad_norm": 0.5,
+    "per_device_batch_size": 4,
+    "grad_accum": 4,
+    "early_stopping_patience": 5
+  },
+  "multi_seed_r32": {
+    "_note": "seed=1337 = the v5 champion (carried across); seeds 2026, 4242 are new v6 runs. seed=2026 early-stopped at step 800; the other two ran the full 1400 steps.",
+    "rows": [
+      {"seed": 1337, "best_step": 900, "in_loop_cer": 0.5168,
+       "val_117":  {"cer_raw": 0.5266, "cer_strip": 0.5073, "nls": 0.4999},
+       "test_246": {"cer_raw": 0.5711, "cer_strip": 0.5607, "nls": 0.4782},
+       "source": "runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900",
+       "val_summary_file": "reports/eval/a9_decoding/val_beam4_160_summary.json",
+       "test_summary_file": "reports/eval/test_summary_beam4.json"},
+      {"seed": 2026, "best_step": 300, "in_loop_cer": 0.5568,
+       "val_117":  {"cer_raw": 0.5507, "cer_strip": 0.5309, "nls": 0.4532},
+       "test_246": {"cer_raw": 0.5725, "cer_strip": 0.5504, "nls": 0.4358},
+       "source": "runs/phase4_v6/mixed_80_20_seed2026_r32/checkpoint-300"},
+      {"seed": 4242, "best_step": 900, "in_loop_cer": 0.5391,
+       "val_117":  {"cer_raw": 0.6306, "cer_strip": 0.6785, "nls": 0.4727},
+       "test_246": {"cer_raw": 0.6309, "cer_strip": 0.6355, "nls": 0.4543},
+       "source": "runs/phase4_v6/mixed_80_20_seed4242_r32/checkpoint-900"}
+    ],
+    "aggregate_3seed": {
+      "val_117_cer_mean":  0.5695, "val_117_cer_std":  0.0543,
+      "val_117_nls_mean":  0.4753, "val_117_nls_std":  0.0235,
+      "test_246_cer_mean": 0.5915, "test_246_cer_std": 0.0341,
+      "test_246_nls_mean": 0.4561, "test_246_nls_std": 0.0213
+    }
+  },
+  "lora_rank_ablation": {
+    "_note": "All seed=1337, mixed_80_20, 5-ep ceiling, beam=4 decoding. r=32 is the published champion; r=16 and r=64 are new v6 cells with identical config except --lora-r.",
+    "rows": [
+      {"rank": 16, "best_step": 900, "in_loop_cer": 0.5508,
+       "val_117":  {"cer_raw": 0.5340, "cer_strip": 0.5254, "nls": 0.4800},
+       "test_246": {"cer_raw": 0.5792, "cer_strip": 0.5733, "nls": 0.4609},
+       "source": "runs/phase4_v6/mixed_80_20_seed1337_r16/checkpoint-900"},
+      {"rank": 32, "best_step": 900, "in_loop_cer": 0.5168,
+       "val_117":  {"cer_raw": 0.5270, "cer_strip": 0.5074, "nls": 0.5000},
+       "test_246": {"cer_raw": 0.5711, "cer_strip": 0.5607, "nls": 0.4782},
+       "source": "runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900"},
+      {"rank": 64, "best_step": 900, "in_loop_cer": 0.5388,
+       "val_117":  {"cer_raw": 0.5791, "cer_strip": 0.5298, "nls": 0.5085},
+       "test_246": {"cer_raw": 0.6152, "cer_strip": 0.5788, "nls": 0.4807},
+       "source": "runs/phase4_v6/mixed_80_20_seed1337_r64/checkpoint-900"}
+    ]
+  }
+}

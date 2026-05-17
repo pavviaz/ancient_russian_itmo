@@ -1,0 +1,13 @@
+{
+  "adapter": "runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "jsonl": "data/interim/birchbark_test.jsonl",
+  "n_rows_input": 5,
+  "n_rows_scored": 5,
+  "n_skipped_no_img": 0,
+  "n_skipped_meaningless": 0,
+  "mean_cer_raw": 0.6786804586101532,
+  "mean_cer_brackets_stripped": 0.6285574897915323,
+  "mean_nls": 0.40482941213376,
+  "elapsed_sec": 10.386815309524536
+}

@@ -1,0 +1,39 @@
+[+] loading base Qwen/Qwen3.5-2B ...
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/617 [00:00<?, ?it/s]Loading weights: 100%|██████████| 617/617 [00:00<00:00, 10020.12it/s]
+[+] loading adapter runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900 ...
+[+] model on cuda:0 dtype=bfloat16
+[  10/117]  scored=10  meanCER=0.5487  meanNLS=0.4852  elapsed=24s
+[  20/117]  scored=20  meanCER=0.5516  meanNLS=0.4654  elapsed=51s
+[  30/117]  scored=30  meanCER=0.4970  meanNLS=0.5143  elapsed=80s
+[  40/117]  scored=40  meanCER=0.4896  meanNLS=0.5211  elapsed=110s
+[  50/117]  scored=50  meanCER=0.5003  meanNLS=0.5099  elapsed=137s
+[  60/117]  scored=60  meanCER=0.4921  meanNLS=0.5184  elapsed=157s
+[  70/117]  scored=70  meanCER=0.5017  meanNLS=0.5325  elapsed=177s
+[  80/117]  scored=80  meanCER=0.5070  meanNLS=0.5257  elapsed=198s
+[  90/117]  scored=90  meanCER=0.5020  meanNLS=0.5278  elapsed=221s
+[ 100/117]  scored=100  meanCER=0.5192  meanNLS=0.5080  elapsed=233s
+[ 110/117]  scored=110  meanCER=0.5198  meanNLS=0.5053  elapsed=251s
+[ 117/117]  scored=117  meanCER=0.5266  meanNLS=0.4999  elapsed=267s
+{
+  "adapter": "runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "jsonl": "data/splits/phase4_v3/val.jsonl",
+  "decoding": {
+    "max_new_tokens": 160,
+    "num_beams": 4,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 4
+  },
+  "n_rows_input": 117,
+  "n_rows_scored": 117,
+  "n_skipped_no_img": 0,
+  "n_skipped_meaningless": 0,
+  "mean_cer_raw": 0.5265996319604688,
+  "mean_cer_brackets_stripped": 0.5073425707256469,
+  "mean_nls": 0.4998603237467891,
+  "elapsed_sec": 267.2328128814697
+}

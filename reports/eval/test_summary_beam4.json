@@ -1,0 +1,20 @@
+{
+  "adapter": "runs/phase4_v5/mixed_80_20__Qwen_Qwen3_5-2B__ceil5ep/checkpoint-900",
+  "base_model": "Qwen/Qwen3.5-2B",
+  "jsonl": "data/interim/birchbark_test.jsonl",
+  "decoding": {
+    "max_new_tokens": 160,
+    "num_beams": 4,
+    "repetition_penalty": 1.0,
+    "length_penalty": 1.0,
+    "no_repeat_ngram_size": 4
+  },
+  "n_rows_input": 252,
+  "n_rows_scored": 246,
+  "n_skipped_no_img": 1,
+  "n_skipped_meaningless": 5,
+  "mean_cer_raw": 0.5711047031122315,
+  "mean_cer_brackets_stripped": 0.5606989695118413,
+  "mean_nls": 0.47820458490178663,
+  "elapsed_sec": 616.8053507804871
+}

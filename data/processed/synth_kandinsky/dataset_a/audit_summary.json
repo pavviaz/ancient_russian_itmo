@@ -1,0 +1,58 @@
+{
+  "dataset_name": "dataset_a",
+  "refined_manifest": "/workspace-SR006.nfs3/vyaznikov/ancient_russian_itmo/data/processed/synth_kandinsky/dataset_a/manifest.jsonl",
+  "audit_manifest": "/workspace-SR006.nfs3/vyaznikov/ancient_russian_itmo/data/processed/synth_kandinsky/dataset_a/manifest_audit.jsonl",
+  "clean_manifest": "/workspace-SR006.nfs3/vyaznikov/ancient_russian_itmo/data/processed/synth_kandinsky/dataset_a/manifest_clean.jsonl",
+  "strategy": "aspect-only",
+  "thresholds": {
+    "iou_keep": 0.32,
+    "iou_soft": 0.18,
+    "corr_keep": 0.55,
+    "corr_soft": 0.3,
+    "damage_drop": 0.45,
+    "damage_soft": 0.25,
+    "trocr_cer_soft": null,
+    "trocr_cer_drop": null
+  },
+  "counts": {
+    "audited": 5021,
+    "keep": 4374,
+    "soft": 0,
+    "drop": 647,
+    "errors": 29
+  },
+  "score_quantiles": {
+    "n": 4992,
+    "min": 0.0,
+    "p10": 0.24646967588332117,
+    "p25": 0.41220865808402507,
+    "p50": 0.6013315582760672,
+    "p75": 0.7311928757335998,
+    "p90": 0.813535499405696,
+    "max": 0.9812516222637817,
+    "mean": 0.5634365089189828
+  },
+  "darkness_corr_quantiles": {
+    "n": 4992,
+    "min": -0.7089397662016594,
+    "p10": 0.23102944569487113,
+    "p25": 0.6208752505427907,
+    "p50": 0.8203993190539354,
+    "p75": 0.920279133124512,
+    "p90": 0.9588960850112114,
+    "max": 0.9970976025001677,
+    "mean": 0.7176054929490825
+  },
+  "aspect_damage_quantiles": {
+    "n": 4992,
+    "min": 0.0,
+    "p10": 0.0,
+    "p25": 0.0,
+    "p50": 0.0,
+    "p75": 0.0,
+    "p90": 0.5763888888888888,
+    "max": 0.953125,
+    "mean": 0.08076493135544649
+  },
+  "trocr_cer_quantiles": null
+}
